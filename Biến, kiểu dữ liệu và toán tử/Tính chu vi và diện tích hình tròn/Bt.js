@@ -1,0 +1,10 @@
+var x;
+x = prompt("Nhập bán kính hình tròn: ");
+var y = 2 * x;
+var z = 2 * x * 3.14;
+var t = x * x * 3.14;
+document.write("Đường kính hình tròn là:" +y);
+document.write("<br/>");
+document.write("Chu vi hình tròn là:" +z);
+document.write("<br/>");
+document.write("Diện tích hình tròn là:" +t);
