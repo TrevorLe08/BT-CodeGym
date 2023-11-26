@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Bài 2</h2>
+    <p>Giá hoa quả</p>
+    <input type="text">
+</body>
+<script>
+    let a = Number(prompt("Nhập số cân nặng: "));
+    let b = Number(prompt("Nhập chiều cao: "));
+    let c = a/(b*b)
+if (c > 40) {
+    alert("béo phì cấp độ III");
+} else if (c < 40 && c >= 35) {
+    alert("béo phì cấp độ II");
+} else if (c < 35 && c >= 30) {
+    alert("béo phì cấp độ I");
+} else if (c < 30 && c >= 25) {
+    alert("thừa cân");
+} else if (c < 25 && c >= 18.5) {
+    alert("bình thường");
+} else if (c < 18.5 && c >= 17) {
+    alert("gầy cấp độ I");
+} else if (c < 17 && c >= 16) {
+    alert("gầy cấp độ II");
+} else if (c < 16) {
+    alert("gầy cấp độ III");
+}
+</script>
+</html>
