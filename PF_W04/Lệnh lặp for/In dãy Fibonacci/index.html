@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viết dãy Fibonacci</title>
+</head>
+<body>
+    <p>Dãy số fibonacci: </p>
+</body>
+<script>
+    let n = +prompt("Nhập sô chữ số của dãy Fibonacci: ")
+    let num1 = 1
+        let num2 = 1
+        let count = 0
+        let sum = 0
+        while (count < n) {
+            document.writeln(num1 + "<br>")
+            sum += num1
+            let temp = num2
+            num2 += num1
+            num1 = temp
+            count++
+        }
+    
+</script>
+</html>

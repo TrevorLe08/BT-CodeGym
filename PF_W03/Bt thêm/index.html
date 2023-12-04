@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính lãi ngân hàng</title>
+</head>
+<body>
+    <label for="money">Số tiền</label>
+    <br>
+    <input type="text" id="money">
+    <br>
+    <label for="month">Số tháng gửi</label>
+    <br>
+    <input type="text" id="month">
+    <p><button onclick="btn()">Tính</button></p>
+    <h2 id="result"></h2>
+    <h2 id="result1"></h2>
+</body>
+<script>
+    function btn () {
+    let money = +document.getElementById("money").value // money
+    let month = +document.getElementById("month").value // month
+    let interest                                           // interest rate: lãi đơn
+    if (month < 12) {
+        let interest = 6.5/100
+        var earning = money * interest * month
+        var total = money + earning
+    } else if (month < 24 || month >= 12) {
+        let interest = 8/100
+        var earning = money * interest * month
+        var total = money + earning
+    } else if (month >= 24) {
+        let interest = 9.65/100
+        var earning = money * interest * month
+        var total = money + earning
+    }
+    document.getElementById("result").innerHTML = "Số tiền lãi là: " + earning + " VND" + " và số tiền nhận được là: " + total + " VND"
+    document.getElementById("result").style.color = "cyan"
+
+    //-------------------------------------------------------------------------------------------//
+    let doubleinterest                                           // compound interest rate : lãi kép
+    if (month < 12) {
+        let doubleinterest = 6.5/100
+        var total1 = money* Math.pow(1 + doubleinterest,month)   // Tổng = A.(1+r)^n
+        var earning1 = total1 - money
+    } else if (month < 24 || month >= 12) {
+        let doubleinterest = 8/100
+        var total1 = money* Math.pow(1 + doubleinterest,month)
+        var earning1 = total1 - money
+    } else if (month >= 24) {
+        let doubleinterest = 9.65/100
+        var total1 = money* Math.pow(1 + doubleinterest,month)
+        var earning1 = total1 - money
+    }
+    document.getElementById("result1").innerHTML = "Số tiền lãi là: " + earning1.toFixed(2) + " VND" + " và số tiền nhận được là: " + total1.toFixed(2) + " VND"
+    document.getElementById("result1").style.color = "cyan"
+}
+</script>
+</html>

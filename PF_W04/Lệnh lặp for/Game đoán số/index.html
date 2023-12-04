@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trò chơi đoán số</title>
+</head>
+<body>
+    <h1>Trò chơi đoán số</h1>
+    <button onclick="btn()">Chơi</button>
+    <p id="demo"></p>
+</body>
+<script>
+    function btn() {
+        let turn = 1
+        let num = +prompt("Bạn hãy số lớn nhất trong 1 khoảng: ");
+        let value = Math.round(Math.random( ) * num);
+        console.log(value);
+        if (!isNaN(num) && !isNaN(value)) {
+            while (turn < 4) {
+                let num1 = +prompt("Lần thứ " + turn + ". Đoán 1 số: ");
+                if (num1 == value) {
+                    alert("Bạn đã chiến thắng.") 
+                    break;
+                } else {
+                    alert("Bạn đã thua.")
+                    turn++   
+                }
+                if (turn == 4) {
+                    alert("Bạn đã hết lượt chơi")
+                }
+            }
+        } else {
+            alert("Bạn nhập sai định dạng")
+        }
+    }
+</script>
+</html>

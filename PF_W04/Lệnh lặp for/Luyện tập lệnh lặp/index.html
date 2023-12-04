@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luyện tập vòng lặp</title>
+</head>
+<body>
+    <button onclick="bai1()">Bài 1</button>
+    <p id="da1"></p>
+    <button onclick="bai2()">Bài 2</button>
+    <p id="da2"></p>
+    <button onclick="bai345()">Bài 3, 4, 5</button>
+    <p id="da3"></p>
+    <button onclick="bai6()">Bài 6</button>
+    <p id="da6"></p>
+    <button onclick="bai7()">Bài 7</button>
+    <p id="da7"></p>
+</body>
+<script>
+    function bai1() {
+        let data = ""
+        for (let i = 1; i < 100; i++) {
+            if (i == 99) {
+                alert("Complete!")
+            } else {
+                data += i + "-"
+            }
+        }
+        document.getElementById("da1").innerHTML = data
+    }
+
+    function bai2() {
+        let temparature
+        do {
+        temparature = +prompt("Nhập nhiệt độ: ")
+        if (temparature > 100) {
+            alert("Giảm nhiệt độ")
+        } else if (temparature < 20) {
+            alert("Tăng nhiệt độ")
+        } else {
+            alert("Nhiệt độ bình thường")
+        }
+        } while (temparature < 20 || temparature > 100)
+    
+    }
+    function bai345() {
+        // Bài 3
+        let num1 = 1
+        let num2 = 1
+        let count = 0
+        let sum = 0
+        while (count < 20) {
+            console.log(num1)
+            sum += num1
+            let temp = num2
+            num2 += num1
+            num1 = temp
+            count++
+        }
+
+                // Bài 4
+        let num3 = 1
+        let num4 = 1
+        while (true) {
+            if (num3 % 5 ===0) {
+                break;
+            }
+            let temp = num4
+            num4 += num3
+            num3 = temp
+            count++
+        }
+        document.getElementById("da3").innerHTML = "Tổng 20 số đầu tiên Fibonacci là: " + sum + "<br> Số fibonacci chia hết cho 5 là: " + num3
+    }
+    function bai6() {
+        let sum = 0
+        for (let i = 0; i <= 30; i++) {
+            sum += i * 7
+        }
+        alert("Tổng 30 số đầu chia hết cho 7 là: " + sum)
+    }
+    function bai7() {
+        for (let i = 0; i < 100; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            console.log("FizzBuzz")
+        } else if (i % 3 === 0) {
+            console.log("FizzBuzz")
+        } else if (i % 5 === 0) {
+            console.log("FizzBuzz")
+        } else {
+            console.log(i)
+        }
+    }
+}
+</script>
+</html>

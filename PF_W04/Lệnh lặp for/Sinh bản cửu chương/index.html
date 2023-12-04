@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bảng cửu chương</h1>
+    <!-- <div id="result"></div> -->
+</body>
+<script>
+    // Cách 1:
+    document.write("<table border=1 width=100%>")
+    for (i=1 ; i<=9 ; i++)   {
+	   document.write("<tr>")
+       for(n=2 ; n<=9 ; n++) {
+           document.write("<td>" + n + "x" + i +"="+ (n*i));
+       }
+       document.write("</td>");
+	   document.write("</tr>")
+    }
+    document. write("</tr></table>")
+
+    // Cách 2:
+    // let data = "<h1>Bảng cửu chương</h1>"
+    // data += "<table border=1 width=100%>"
+    // for (let i = 1; i < 10; i++) {
+    //     data += "<tr>";
+    //     for (let j = 2; j < 10; j++) {
+    //         data += "<td>";
+    //         data += j + "x" + i + " = " + (i*j)
+    //         data += "</td>"
+    //     }
+    //     data += "</tr>"
+    // }
+    // data += "</table>"
+    // document.getElementById("result").innerHTML = data
+</script>
+</html>
