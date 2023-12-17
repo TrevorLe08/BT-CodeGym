@@ -8,6 +8,8 @@
 <body>
     <button onclick="tamgiac1()">Hình 1</button>
     <button onclick="tamgiac2()">Hình 2</button>
+	<button onclick="tamgiac3()">Hình 2</button>
+	<button onclick="tamgiac4()">Hình 2</button>
 </body>
 <script>
 
@@ -29,6 +31,34 @@
 	for(i = a; i >= 0 ; i-- ) {
 		for(j = 0 ; j < i ; j++) {
 			document.writeln(" * ")
+		}
+		document.writeln("<br>")
+	}
+}
+function tamgiac3() {
+    let i
+    let j
+	let a = parseInt(prompt("Nhập chiều cao tam giác: "))
+	for(i = 0; i < a ; i++) {
+		for(j = a - 1 ; j > i ; j--) {
+			document.writeln("&ensp;")
+		}
+		for(j = 0 ; j < i ; j++) {
+			document.writeln("*")
+		}
+		document.writeln("<br>")
+	}
+}
+function tamgiac4() {
+    let i
+    let j
+	let a = parseInt(prompt("Nhập chiều cao tam giác: "))
+	for(i = a; i> 0 ; i--) {
+		for(j = a ; j > i ; j--) {
+			document.writeln("&ensp;")
+		}
+		for(j = 1 ; j <= i ; j++) {
+			document.writeln("*")
 		}
 		document.writeln("<br>")
 	}
