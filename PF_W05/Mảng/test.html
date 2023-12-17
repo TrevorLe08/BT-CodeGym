@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="seqSearch(arr)"></button>
+    <button onclick="dispArr(arr)"></button>
+  </body>
+  <script>
+    function seqSearch(arr, data) {
+      for (var i = 0; i < arr.length; ++i) {
+        if (arr[i] == data) {
+          return true;
+        }
+      }
+      return false;
+    }
+    function dispArr(arr) {
+      for (var i = 0; i < arr.length; ++i) {
+        putstr(arr[i] + " ");
+        if (i % 10 == 9) {
+          putstr("\n");
+        }
+      }
+      if (i % 10 != 0) {
+        putstr("\n");
+      }
+    } //end function dispArr()
+    var nums = [];
+    for (var i = 0; i < 100; ++i) {
+      nums[i] = Math.floor(Math.random() * 101);
+    }
+    dispArr(nums);
+    putstr("Enter a number to search for: ");
+    var num = parseInt(readline());
+    print();
+    if (seqSearch(nums, num)) {
+      print(num + " is in the array.");
+    } else {
+      print(num + " is not in the array.");
+    }
+    print();
+    dispArr(nums);
+  </script>
+</html>
