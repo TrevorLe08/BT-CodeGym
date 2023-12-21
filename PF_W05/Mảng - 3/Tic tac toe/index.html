@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+table {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+p {
+    text-align: center;
+    vertical-align: middle;
+}
+td {
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid black;
+}
+.playerSymbol {
+    font-size: 40px;
+}
+.win {
+    background-color: yellow;
+}
+</style>
+<body>
+    <div class="board">
+        <table>
+            <tr>
+                <td id="00" onclick="changeValue(0,0)"></td>
+                <td id="01" onclick="changeValue(0,1)"></td>
+                <td id="02" onclick="changeValue(0,2)"></td>
+            </tr>
+            <tr>
+                <td id="10" onclick="changeValue(1,0)"></td>
+                <td id="11" onclick="changeValue(1,1)"></td>
+                <td id="12" onclick="changeValue(1,2)"></td>
+            </tr>
+            <tr>
+                <td id="20" onclick="changeValue(2,0)"></td>
+                <td id="21" onclick="changeValue(2,1)"></td>
+                <td id="22" onclick="changeValue(2,2)"></td>
+            </tr>
+        </table>
+        <button type="button" onclick="resetStatus()">Reset</button>
+        <p id="result">Player X turn</p>
+    </div>
+</body>
+<script>
+    function changeValue(i,j) {
+        let n = "" + i + j
+        const id = document.getElementById(n)
+        if (id.innerHTML === "" && !gameStatus) {
+            id.innerHTML = currentPlayer
+            id.classList.add("playerSymbol")
+            checkWin()
+            currentPlayer = currentPlayer === "X" ? "O" : "X";
+            if (currentPlayer === "X") {
+                id.style.color = "red"
+            } else {
+                id.style.color = "blue"
+            }
+            if (!gameStatus && currentPlayer === "X") {
+                document.getElementById("result").innerHTML = "Player X turn"
+            } else if (!gameStatus && currentPlayer === "O") {
+                document.getElementById("result").innerHTML = "Player O turn"
+            }
+        }
+        checkTie()
+    }
+</script>
+<script>
+    function checkWin() {
+        for (let i = 0; i < win.length; i++) {
+            if (document.getElementById(win[i][0]).innerHTML === currentPlayer &&
+                document.getElementById(win[i][1]).innerHTML === currentPlayer &&
+                document.getElementById(win[i][2]).innerHTML === currentPlayer) {
+                    document.getElementById(win[i][0]).classList.add("win");
+                    document.getElementById(win[i][1]).classList.add("win");
+                    document.getElementById(win[i][2]).classList.add("win"); 
+                    gameStatus = true;
+                    document.getElementById("result").innerHTML = currentPlayer + " is win!"
+            }
+        }
+    }
+</script>
+<script>
+    function resetStatus() {
+        for (let i = 0; i <= 2; i++) {
+            for (let j = 0; j <= 2; j++) {
+                let n = "" + i + j
+                document.getElementById(n).innerHTML = "";
+                document.getElementById("result").innerHTML = "Player X turn";
+                document.getElementById(n).classList.remove("playerSymbol");
+                document.getElementById(n).classList.remove("win");
+                gameStatus = false;
+                currentPlayer = "X";
+            }
+        }
+    }
+</script>
+<script>
+    // function checkTie() {
+    //     for (let i = 0; i <= 2; i++) {
+    //         for (let j = 0; j <= 2; j++) {
+    //             let n = "" + i + j
+    //             if (document.getElementById(n).innerHTML = "") {
+    //                 document.getElementById("result").innerHTML = "Tie";
+    //                 gameStatus = true;
+    //             }
+    //         }
+    //     }
+    // }
+</script>
+<script>
+    let currentPlayer = "X";
+    let gameStatus = false
+    let win = [];
+        win[0] = ["00", "01", "02"]
+        win[1] = ["10", "11", "12"]
+        win[2] = ["20", "21", "22"]
+        win[3] = ["00", "10", "20"] 
+        win[4] = ["01", "11", "21"]
+        win[5] = ["02", "12", "22"]
+        win[6] = ["00", "11", "22"]
+        win[7] = ["02", "11", "20"]
+</script>
+</html>
+

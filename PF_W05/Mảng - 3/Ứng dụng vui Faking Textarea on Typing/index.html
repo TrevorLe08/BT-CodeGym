@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="FakingTextarea()" style="text-align: center;">
+    <h2>Type anthing slowly</h2>
+    <form>
+        <label>
+            <textarea cols="30" rows="5" id="text"></textarea>
+        </label>
+    </form>
+</body>
+<script>
+    let arr = [];
+    let str = "";
+    arr[1] ='B';
+    arr[2] ='A';
+    arr[3] ='O';
+    arr[4] =' ';
+    arr[5] ='L';
+    arr[6] ='Â';
+    arr[7] ='U';
+    arr[8] =' ';
+    arr[9] ='M';
+    arr[10] ='Ớ';
+    arr[11] ='I';
+    arr[12] =' ';
+    arr[13] ='B';
+    arr[14] ='Á';
+    arr[15] ='N';
+    arr[16] =' ';
+    arr[17] ='H';
+    arr[18] ='Ế';
+    arr[19] ='T';
+    arr[20] =' ';
+    arr[21] ='M';
+    arr[22] ='Ộ';
+    arr[23] ='T';
+    arr[24] =' ';
+    arr[25] ='T';
+    arr[26] ='Ỷ';
+    arr[27] =' ';
+    arr[28] ='G';
+    arr[29] ='Ó';
+    arr[30] ='I';
+    arr[31] =' ';
+    arr[32] ='M';
+    arr[33] ='È';
+    arr[34] =':';
+    arr[35] ='D';
+    function FakingTextarea() {
+        let text = document.getElementById("text").value;
+        let j = text.length;
+        if (j > 0) {
+            for(let i = 1; i <= j; i++) {
+                str += arr[i];
+                if (i === 36) {
+                    document.getElementById("text").value= "";
+                    str = "";
+                }
+            }
+        }
+        document.getElementById("text").value = str;
+        str = "";
+        setTimeout("FakingTextarea()", 0.1);
+    }
+</script>
+</html>
