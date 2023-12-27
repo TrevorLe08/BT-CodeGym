@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý sản phẩm</title>
+<style>
+    #getProduct {
+        width: 500px;
+        height: 40px;
+        background-color: rgb(222, 222, 222);
+        padding: 12px;
+        border-radius: 5px;
+    }
+    #quantityProduct {
+        text-align: right;
+        color: red;
+    }
+    button {
+        background-color: rgb(12, 174, 12);
+        color: white;
+        font-weight: bold;
+        border: white;
+        border-radius: 3px;
+        padding: 12px;
+        width: 80px;
+    }
+    input {
+        width: 300px;
+        height: 38px;
+        border: 0.5px solid;
+        border-radius: 5px;
+    }
+    table,td,tr {
+        border-collapse: collapse;
+        border: 0px;
+    }
+    table {
+        width: 600px
+    }
+    td {
+            padding: 10px;
+    }
+    tr:nth-child(odd) {
+            background-color: rgb(222, 222, 222);
+    }
+</style>
+</head>
+<body onload="display()">
+    <h2>Add New Product</h2>
+    <div id="getProduct">
+        <input type="text" id="product" placeholder="New Product">
+        <button type="button" onclick="addProduct()">Add</button>
+    </div>
+    <h2>Display All Product</h2>
+    <div id="information"></div>
+</body>
+<script>
+    let arr = ["Sony Xperia","Samsung Galaxy","Nokia 6","Xiaomi Redmi Note 4","Apple Iphong 6S","Xiaomi MI 5s Plus","Apple Iphong 8 Plus","Fujitsu F-04E","Oppo A71"]
+    function display() {
+        let data = "<table>"
+            data += "<tr style='background-color: white'><td><b>Product Name</b></td><td></td></td><td id='quantityProduct'><b>" + arr.length + " products</b></td>"
+            for (let i = 0; i < arr.length; i++) {
+                data += "<tr>"
+                data += "<td>" + arr[i] + "</td>"
+                data += "<td><button onclick='editProduct(" + i + ")'>Edit</button></td>"
+                data += "<td><button onclick='deleteProduct(" + i + ")'>Delete</button></td>"
+                data += "</tr>"
+            }
+            data += "</table>"
+            document.getElementById("information").innerHTML = data
+        }
+    function addProduct() {
+        let product = document.getElementById("product").value
+        arr.push(product)
+        document.getElementById("product").value = ""
+        display()
+    }
+    function deleteProduct(n) {
+        arr.splice(n,1)
+        display()
+    }
+    function editProduct(n) {
+        let product = prompt("Nhập sản phẩm chỉnh sửa: ", "")
+        if (product != "") {
+            arr[n] = product
+        }
+        display()
+    }
+</script>
+</html>

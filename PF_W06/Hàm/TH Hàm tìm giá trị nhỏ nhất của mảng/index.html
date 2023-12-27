@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function minArray(arr) {
+        let index = 1
+        let min = arr[0];
+        if (arr.length == 0) {
+            min = -1
+            index = 0
+        }
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] < min) {
+                min = arr[i];
+                index = i + 1
+            }
+        }
+        let result = min + " tại vị trí số " + index
+        return result
+    }
+</script>
+<script>
+    let arr1 = [3, 5, 1, 8, -3, 7, 8];
+    let arr2 = [7, 12, 6, 9, 20, 56, 89, -1];
+    let arr3 = [];
+    let arr4 = [0, 0, 0, 0, 0, 0];
+    console.log(arr1);
+    console.log(minArray(arr1));
+    console.log(arr2);
+    console.log(minArray(arr2));
+    console.log(arr3);
+    console.log(minArray(arr3));
+    console.log(arr4);
+    console.log(minArray(arr4));
+</script>
+</html>

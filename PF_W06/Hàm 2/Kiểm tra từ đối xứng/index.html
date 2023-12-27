@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiểm tra từ đối xứng</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function isPalindrome(str) {
+        let arr = str.split("");
+        let first = arr[0]
+        let last = arr[arr.length - 1]
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i] === arr[arr.length - 1 - i]) {
+                arr.pop("");
+                arr.shift("");
+                if (arr.length === 0 || arr.length === 1) {
+                    break
+                }
+            } else {
+                return false
+                break
+            }  
+        }
+    return true
+    }
+</script>
+<script>
+    let str = prompt("Nhập 1 chuỗi")
+    console.log(isPalindrome(str));
+</script>
+</html>

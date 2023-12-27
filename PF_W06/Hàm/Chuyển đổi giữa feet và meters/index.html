@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="value">
+    <button onclick="calculator('Feet')">Feet to Meter</button>
+    <button onclick="calculator('Meter')">Meter to Feet</button>
+    <p id="result"></p>
+</body>
+<script>
+    function calculator(type) {
+        let value = document.getElementById("value").value
+        if (isNaN(value)) {
+            document.getElementById("result").innerHTML = "Error format"
+            document.getElementById("value").value = ""
+        } else {
+            if (type === 'Feet') {
+                let meter = value * 0.305
+                document.getElementById("result").innerHTML = "Result: " + meter + "m"
+            } else if (type = 'Meter') {
+                let feet = value * 3.279
+                document.getElementById("result").innerHTML = "Result: " + feet + " feet"
+            }
+        }
+    }
+</script>
+</html>
